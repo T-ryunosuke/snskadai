@@ -8,5 +8,6 @@ body {
     height: 100%;
     height: auto;
     background: linear-gradient(to bottom, #186AC9 0%, #FFF450 100%);
+    text-align: center;
 
 }
