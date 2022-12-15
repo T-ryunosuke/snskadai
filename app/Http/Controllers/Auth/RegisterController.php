@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-session_start();
-
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;

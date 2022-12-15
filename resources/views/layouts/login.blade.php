@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +25,7 @@ session_start();
         <h1><a><img src="images/atlas.png"></a></h1>
             <div id="">
                 <div id="">
-                    <p><?php echo $_SESSION["name"]; ?>さん<img src="images/icon1.png"></p>
+                    <p>さん<img src="images/icon1.png"></p>
                 <div>
                 <ul>
                     <li><a href="/top">ホーム</a></li>
@@ -45,7 +41,7 @@ session_start();
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p><?php echo $_SESSION["name"]; ?>さんの</p>
+                <p>さんの</p>
                 <div>
                 <p>フォロー数</p>
                 <p>〇〇名</p>
