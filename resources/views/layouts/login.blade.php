@@ -23,6 +23,18 @@
     <header>
         <div id = "head">
         <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+    <!--アコーディオン追加↓-->
+    <div class="accordion_one">
+      <div class="accordion_header">アコーディオン、一つ開けると他は閉じる
+        <div class="i_box"><i class="one_i"></i></div>
+      </div>
+      <div class="accordion_inner">
+        <div class="box_one">
+          <p class="txt_a_ac">アコーディオンの中身です。</p>
+        </div>
+      </div>
+    </div>
+    <!--アコーディオン追加↑-->
             <div id="">
                 <div id="">
                     <p>さん<img src="images/icon1.png"></p>
@@ -59,6 +71,6 @@
     <footer>
     </footer>
     <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>
