@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+session_start();
+
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -38,10 +40,11 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
+    //Requestでbladeからのフォームをリクエスト
     public function login(Request $request){
+        //isMethodでpostか確認
         if($request->isMethod('post')){
-
+            //onlyで連想配列をまとめてリクエスト
             $data=$request->only('mail','password');
             // ログインが成功したら、トップページへ
             //↓ログイン条件は公開時には消すこと

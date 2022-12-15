@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+session_start();
+
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -78,9 +80,9 @@ class RegisterController extends Controller
     public function register(Request $request){
         if($request->isMethod('post')){
             $data = $request->input();
-
+            $_SESSION["name"] = $data['username'];
             $this->create($data);
-            return redirect('added');
+            return redirect('/added');
         }
         return view('auth.register');
     }
