@@ -18,12 +18,16 @@
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
+
+    <!--追加：jQuery適用-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
     <header>
         <div id = "head">
         <h1><a href="/top"><img src="images/atlas.png"></a></h1>
     <!--アコーディオン追加↓-->
+    <div class="section s_02">
     <div class="accordion_one">
       <div class="accordion_header">アコーディオン、一つ開けると他は閉じる
         <div class="i_box"><i class="one_i"></i></div>
@@ -33,6 +37,7 @@
           <p class="txt_a_ac">アコーディオンの中身です。</p>
         </div>
       </div>
+    </div>
     </div>
     <!--アコーディオン追加↑-->
             <div id="">
@@ -71,6 +76,6 @@
     <footer>
     </footer>
     <script src="JavaScriptファイルのURL"></script>
-    <script src="./js/script.js"></script>
+    <script src="../../../public/js/script.js"></script>
 </body>
 </html>
