@@ -18,9 +18,6 @@
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
-
-    <!--追加：jQuery適用-->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
   <header>
@@ -31,6 +28,6 @@
     @yield('content')
   </div>
   <script src="JavaScriptファイルのURL"></script>
-  <script src="./js/script.js"></script>
+  <script src="JavaScriptファイルのURL"></script>
 </body>
 </html>
