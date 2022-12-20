@@ -21,6 +21,7 @@
 
     <!--追加：jQuery適用-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{{ asset('/js/script.js') }}"></script>
 </head>
 <body>
     <header>
@@ -76,6 +77,5 @@
     <footer>
     </footer>
     <script src="JavaScriptファイルのURL"></script>
-    <script src="../../../public/js/script.js"></script>
 </body>
 </html>
