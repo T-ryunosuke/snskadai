@@ -19,9 +19,6 @@
 //Auth::routes();
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 //ログアウト中のページ
 Route::get('/login', 'Auth\LoginController@login');
@@ -38,9 +35,10 @@ Route::post('/added', 'Auth\RegisterController@added');
 
   Route::get('/profile','UsersController@profile');
 
-  Route::get('/logout', 'Auth\LoginController@login');
+  //ログアウト機能
+  Route::get('/logout', 'Auth\LoginController@logout');
 
-  Route::get('/search','UsersController@index');
+  Route::get('/search','UsersController@search');
 
   Route::get('/follow-list','PostsController@index');
   Route::get('/follower-list','PostsController@index');
