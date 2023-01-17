@@ -31,14 +31,15 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
+Route::group(['middleware' => 'auth'], function () {
+  //↑topのURLにした時にログインできないようにする。
   Route::get('/top','PostsController@index');
-
   Route::get('/profile','UsersController@profile');
-
-  //ログアウト機能
-  Route::get('/logout', 'Auth\LoginController@logout');
-
   Route::get('/search','UsersController@search');
-
+  Route::post('/search','UsersController@search');
   Route::get('/follow-list','PostsController@index');
   Route::get('/follower-list','PostsController@index');
+
+    //ログアウト機能
+  Route::get('/logout', 'Auth\LoginController@logout');
+  });
