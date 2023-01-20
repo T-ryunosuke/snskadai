@@ -26,7 +26,7 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+        <h1><a href="/top"><img src="images/atlas.png" class="atlas"></a></h1>
     <!--アコーディオン追加↓-->
     <div class="section s_01">
       <div class="accordion_one">
@@ -38,7 +38,7 @@
             <p class="txt_a_ac">
               <div id="">
                 <div id="">
-                    <p>さん<img src="images/icon1.png"></p>
+                    <p>{{Auth::user()->username }}さん<img src="images/icon1.png"></p>
                 <div>
                 <ul>
                     <li><a href="/top">ホーム</a></li>
@@ -60,7 +60,7 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>さんの</p>
+                <p>{{Auth::user()->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
                 <p>〇〇名</p>
