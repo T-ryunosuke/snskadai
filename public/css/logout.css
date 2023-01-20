@@ -1,13 +1,30 @@
 @charset "UTF-8";
 
 html {
-    height: 100%;
+    font-size: 20px;
+    color: #FFF;
+    height: 100vh;
 }
 
 body {
-    height: 100%;
-    height: auto;
     background: linear-gradient(to bottom, #186AC9 0%, #FFF450 100%);
     text-align: center;
+    padding:10% 0;
+}
 
+#container{
+    font-size: 14px;
+    width: 220px;
+    padding:25px 0;
+    margin: 20px auto;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px
+}
+
+.atlas{
+    width: 120px;
+}
+
+a {
+    color: #FFF;
 }
