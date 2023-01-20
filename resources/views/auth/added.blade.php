@@ -4,7 +4,7 @@
 
 
 <div id="clear">
-  <p></p>
+  <p>{{session()->get('username')}}さん</p>
   <p>ようこそ！AtlasSNSへ！</p>
   <p>ユーザー登録が完了しました。</p>
   <p>早速ログインをしてみましょう。</p>
