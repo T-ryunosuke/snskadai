@@ -40,6 +40,12 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('/follow-list','PostsController@index');
   Route::get('/follower-list','PostsController@index');
 
+  // 投稿処理
+  Route::post('posts', 'PostsController@store');
+
+  // 投稿削除
+  Route::get('/{id}/delete', 'PostsController@delete');
+
     //ログアウト機能
   Route::get('/logout', 'Auth\LoginController@logout');
   });
