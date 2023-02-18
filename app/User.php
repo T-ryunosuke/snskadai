@@ -33,4 +33,40 @@ class User extends Authenticatable
     }
 
 
+    //↓フォロー機能実装のため
+    public function following()
+    {
+      return $this->belongsToMany('App\User', 'follows', 'following_id', 'followed_id');
+    }
+
+    public function followed()
+    {
+      return $this->belongsToMany('App\User', 'follows', 'followed_id', 'following_id');
+    }
+    //↑※'App\User'をUser::classと記述してる所もある
+    //第一引数には使用するモデル
+    //第二引数には使用するテーブル名
+    //第三引数にはリレーションを定義しているモデルの外部キー名
+    //第四引数には結合するモデルの外部キー名
+
+    //public function followIds(){
+      //ユーザがフォロー中のユーザを取得
+      //$followIds = $this->followed()->pluck('follows.following_id')->toArray();
+      //フォロー中のユーザを返す
+      //return $followIds;
+    //}
+
+
+    // フォローしているか
+    public function isFollowing(Int $user_id)
+    {
+        return (boolean) $this->following()->where('followed_id', $user_id)->first();
+    }
+
+    // フォローされているか
+    public function isFollowed(Int $user_id)
+    {
+        return (boolean) $this->followed()->where('following_id', $user_id)->first();
+    }
+
 }

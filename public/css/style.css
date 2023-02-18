@@ -6,15 +6,21 @@ html {
 
 body {
     height: 100%;
-    height: auto;
-    background: linear-gradient(to bottom, #186AC9 0%, #FFF450 100%);
-    text-align: center;
 }
 
 /* header */
 header {
     background: #186AC9;
 }
+/* ↓追加 */
+#head {
+    padding: 2%;
+}
+
+.atlas {
+    width: 10%;
+}
+/* ↑追加 */
 
 /* main content */
 #row {
@@ -24,6 +30,7 @@ header {
 
 #container {
     flex: 0 0 80%;
+    background-color: darkgray;
 }
 
 #side-bar {
@@ -31,6 +38,104 @@ header {
     border-left: 1px solid #727272;
 }
 
+/* ↓投稿編集モーダルレイアウト（カリキュラムコピペ）　*/
+/* 必要に応じて編集しご自身でSNS課題のレイアウトのようにカスタマイズしてください。 */
+.content {
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.modal {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.modal__bg {
+    background: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+
+.modal__content {
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+}
+
+/* ↑投稿編集モーダルレイアウト（カリキュラムコピペ）　*/
+
+/* ↓TOPページレイアウトCSS追加 */
+
+.top-page {
+    background-color: #fff;
+    margin-bottom: 5px;
+}
+
+.post-image{
+    display: flex;
+    justify-content:flex-end;
+    width: 10%;
+    height: 10%;
+}
+
+.post-one{
+    background-color: #fff;
+    border-bottom-style: solid;
+}
+
+.postListImage{
+    display: flex;
+    justify-content:flex-end;
+    margin-right:10px;
+}
+
+.postListEditImage img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.postListDeleteImage {
+    position: relative;
+    width: 45px;
+    height: 35px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.postListDeleteImage img:nth-of-type(2) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    -webkit-transition: .1s ease-in-out;
+    transition: .1s ease-in-out;
+}
+.postListDeleteImage img:nth-of-type(1) {
+    position: absolute;
+    top: 49%;
+    left: 51%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 52%;
+
+}
+.postListDeleteImage:hover img:nth-of-type(2) {
+    opacity: 0;
+}
+
+/* ↑TOPページレイアウトCSS追加 */
 
 /*====================================================================
 .s_01 .accordion_one

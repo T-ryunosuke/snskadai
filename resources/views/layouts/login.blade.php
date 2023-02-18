@@ -42,7 +42,7 @@
                 <div>
                 <ul>
                     <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
+                    <li><a href="/profile">プロフィール編集</a></li>
                     <li><a href="/logout">ログアウト</a></li>
                 </ul>
               </div>
@@ -77,6 +77,7 @@
     </div>
     <footer>
     </footer>
+    <!--↓多分上方に記述追加してるので不要-->
     <script src="JavaScriptファイルのURL"></script>
 </body>
 </html>

@@ -32,17 +32,26 @@ Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
 Route::group(['middleware' => 'auth'], function () {
-  //↑topのURLにした時にログインできないようにする。
+  //↑ログインしていないと入れないURLに入れないようにする。
   Route::get('/top','PostsController@index');
+  //プロフィール
   Route::get('/profile','UsersController@profile');
+  Route::post('/up-profile','UsersController@update');
+  //ユーザープロフィール
+  Route::get('/{id}/user_profile','UsersController@userProfile');
+  //検索
   Route::get('/search','UsersController@search');
   Route::post('/search','UsersController@search');
-  Route::get('/follow-list','PostsController@index');
-  Route::get('/follower-list','PostsController@index');
-
+  Route::get('/{id}/follow','FollowsController@follow');
+  Route::get('/{id}/unfollow','FollowsController@unfollow');
+  //フォロー
+  Route::get('/follow-list','FollowsController@followList');
+  //フォロワー
+  Route::get('/follower-list','FollowsController@followerList');
   // 投稿処理
-  Route::post('posts', 'PostsController@store');
-
+  Route::post('/posts', 'PostsController@store');
+  // 投稿編集
+  Route::post('/update', 'PostsController@update');
   // 投稿削除
   Route::get('/{id}/delete', 'PostsController@delete');
 

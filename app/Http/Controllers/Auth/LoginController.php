@@ -42,14 +42,14 @@ class LoginController extends Controller
     public function login(Request $request){
         //isMethodでpostか確認
         if($request->isMethod('post')){
-            //onlyで連想配列をまとめてリクエスト
+            //onlyで連想配列をまとめてリクエストから取得し$dataに入れる
             $data=$request->only('mail','password');
-            // ログインが成功したら、トップページへ
-            //↓ログイン条件は公開時には消すこと
+            //↓は↑で取得したメールとパスワードが合っていたら、topに行くってこと（ログイン条件は公開時には消すこと）
             if(Auth::attempt($data)){
                 return redirect('/top');
             }
         }
+        //ifの条件に合わずログイン失敗で再度ログイン画面に戻る
         return view("auth.login");
     }
 
