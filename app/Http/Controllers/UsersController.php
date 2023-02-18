@@ -46,8 +46,8 @@ class UsersController extends Controller
 
     //↓ユーザープロフィール
     public function userProfile($id){
-      $profile = Post::where('user_id', $id)->first();
       $posts = Post::where('user_id', $id)->get();
+      $profile = \DB::table('users')->where('id', $id)->get();
       return view('users.user_profile', compact('posts', 'profile'));
     }
     //↑
