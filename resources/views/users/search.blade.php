@@ -25,9 +25,9 @@
   <div class="userName">
     <p> {{ $user->username }} </p>
     @if (Auth::user()->isFollowing($user->id))
-    <p class="unfollow-btn"><a href="{{ $user->id }}/unfollow">フォロー解除</a></p>
+    <p class="unfollow-btn"><a href="/{{ $user->id }}/unfollow">フォロー解除</a></p>
     @else
-    <p class="follow-btn"><a href="{{ $user->id }}/follow">フォローする</a></p>
+    <p class="follow-btn"><a href="/{{ $user->id }}/follow">フォローする</a></p>
     @endif
   </div>
   @endif

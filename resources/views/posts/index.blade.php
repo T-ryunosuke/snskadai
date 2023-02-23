@@ -34,7 +34,7 @@
       </div>
       <!-- ↓投稿削除ボタンのための記述 -->
       <div class="postListDeleteImage">
-        <a class="postDelete" href="{{ $post->id }}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img src="images/trash.png"><img src="images/trash-h.png"> </a>
+        <a class="postDelete" href="/{{ $post->id }}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img src="images/trash.png"><img src="images/trash-h.png"> </a>
       </div>
     </div>
   </div>

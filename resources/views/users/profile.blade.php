@@ -2,6 +2,18 @@
 
 @section('content')
 <div class="top-page">
+
+@if ($errors ->any())
+
+<div class="alert">
+  <ul>
+    @foreach($errors->all() as $error)
+    <li>{{$error}}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
+
   <form action="/up-profile" method="POST" enctype="multipart/form-data">
   @csrf
     <!--参考URL:https://www.techpit.jp/courses/139/curriculums/142/sections/1057/parts/4201 -->
@@ -12,6 +24,8 @@
     <!-- ↑ -->
 
     <!-- ↓ログインユーザー情報 -->
+    <input type="hidden" name="id" value="{{ Auth::id() }}">
+
     <label for="username">user name</label>
     <input id="username" type="text" name="username" value="{{ $user->username }}" required autocomplete="username" autofocus>
 
@@ -21,8 +35,8 @@
     <label for="password">password</label>
     <input id="password" type="password" name="password">
 
-    <label for="password-comfirm">password comfirm</label>
-    <input id="password-comfirm" type="text" name="password-comfirm">
+    <label for="password_confirmation">password comfirm</label>
+    <input id="password_confirmation" type="text" name="password_confirmation">
 
     <label for="bio">bio</label>
     <input id="bio" type="text" name="bio" value="{{ $user->bio }}">

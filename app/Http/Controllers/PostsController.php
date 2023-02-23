@@ -20,6 +20,7 @@ class PostsController extends Controller
     }
 
     public function store(Request $request){
+
     //以下に登録処理を記述（Eloquentモデル）
       $posts = new Post;
       $posts->post = $request->post;

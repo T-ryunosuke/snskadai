@@ -10,9 +10,9 @@
         <p>bio    {{ $profile->bio }}</p>
 
         @if (Auth::user()->isFollowing($profile->id))
-        <p class="unfollow-btn"><a href="{{ $profile->id }}/unfollow">フォロー解除</a></p>
+        <p class="unfollow-btn"><a href="/{{ $profile->id }}/unfollow">フォロー解除</a></p>
         @else
-        <p class="follow-btn"><a href="{{ $profile->id }}/follow">フォローする</a></p>
+        <p class="follow-btn"><a href="/{{ $profile->id }}/follow">フォローする</a></p>
         @endif
 
       @endforeach
