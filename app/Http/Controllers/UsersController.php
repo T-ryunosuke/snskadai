@@ -13,28 +13,27 @@ use Auth;
 class UsersController extends Controller
 {
 
-protected function validator(array $data)
-    {
-        $rules = [
-            'username' => 'required|string|max:255',
-            'mail' => ['required','string','email:filter,dns','max:255',Rule::unique('users')->ignore(Auth::id())],
-            'password' => 'required|string|confirmed',
-            'password_confirmation' => 'required',
-            'bio' => 'string|max:400',
-            'images' => 'string|max:255'
-        ];
+    protected function validator(array $data){
+      $rules = [
+        'username' => 'required|string|max:255',
+        'mail' => ['required','string','email:filter,dns','max:255',Rule::unique('users')->ignore(Auth::id())],
+        'password' => 'required|string|confirmed',
+        'password_confirmation' => 'required',
+        'bio' => 'string|max:400',
+        'images' => 'string|max:255'
+      ];
 
-        $messages =[
-            "required" => "必須項目です",
-            "email" => "メールアドレスの形式で入力してください",
-            "string" => "文字で入力してください",
-            "max" => "255文字以内で入力してください",
-            "bio.max" => "400文字以内で入力してください",
-            "unique" => "登録済みのメールアドレスは無効です",
-            "confirmed" => "パスワード確認が一致しません",
-        ];
+      $messages =[
+        "required" => "必須項目です",
+        "email" => "メールアドレスの形式で入力してください",
+        "string" => "文字で入力してください",
+        "max" => "255文字以内で入力してください",
+        "bio.max" => "400文字以内で入力してください",
+        "unique" => "登録済みのメールアドレスは無効です",
+        "confirmed" => "パスワード確認が一致しません",
+      ];
 
-        return Validator::make($data, $rules, $messages);
+      return Validator::make($data, $rules, $messages);
     }
 
     //プロフィール
@@ -82,14 +81,16 @@ protected function validator(array $data)
 
     public function search(Request $request){
       $search_name = $request->search;
+      if(!empty($search_name)){
       //↓POST送信かの判別
-      if($request->isMethod('post')){
+        if($request->isMethod('post')){
           //$query = User::query();←queryを挟む必要があるのか？？
           $users = User::where('username','like',"%{$search_name}%")->get();
           return view('users.search')->with([
             'users'=>$users,
             'search_name'=>$search_name
           ]);
+        }
       }
       //↓GET送信だった時
       $users = User::all();

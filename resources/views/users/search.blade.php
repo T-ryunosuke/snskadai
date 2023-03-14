@@ -6,7 +6,7 @@
     @csrf
     <div class="search">
       <div>
-        <input type="text" name="search" placeholder="ユーザー名" required>
+        <input type="text" name="search" placeholder="ユーザー名">
         <!--　↓虫眼鏡にする -->
         <input type="submit" value="検索">
       </div>

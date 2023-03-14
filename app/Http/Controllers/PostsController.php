@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use App\Post;
 use App\User;
 use App\Follow;
@@ -20,7 +22,9 @@ class PostsController extends Controller
     }
 
     public function store(Request $request){
-
+      $request->validate([
+        'post' => 'required|string|max:150'
+      ]);
     //以下に登録処理を記述（Eloquentモデル）
       $posts = new Post;
       $posts->post = $request->post;
