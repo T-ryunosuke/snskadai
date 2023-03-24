@@ -1,29 +1,50 @@
 @extends('layouts.login')
 
 @section('content')
-<div class="top-page">
-    <section class="user-profile">
-      @foreach($profile as $profile)
-        <img src=" {{ asset('storage/avatar/'.$profile->images) }} " class="rounded-circle" style="object-fit: cover; width: 40px; height: 40px;">
-        <p>name    {{ $profile->username }}</p>
+<section class="top-page">
+  <div class="user-profile">
+    @foreach($profile as $profile)
+    <div class="my-avatar">
+      <img src=" {{ asset('storage/avatar/'.$profile->images) }} " class="avatar">
+    </div>
 
-        <p>bio    {{ $profile->bio }}</p>
+    <div class="introduction">
+      <p>name&emsp;&emsp;&emsp;&emsp;{{ $profile->username }}</p>
+      <div class="spacer"></div>
+      <p>bio&emsp;&emsp;&emsp;&emsp;&emsp;{{ $profile->bio }}</p>
+      @if (Auth::user()->isFollowing($profile->id))
+      <a class="btn btn-danger btn-sm" href="/{{ $profile->id }}/unfollow">フォロー解除</a>
+      @else
+      <a class="btn btn-primary btn-sm" href="/{{ $profile->id }}/follow">フォローする</a>
+      @endif
+    </div>
+    @endforeach
+  </div>
+</section>
 
-        @if (Auth::user()->isFollowing($profile->id))
-        <p class="unfollow-btn"><a href="/{{ $profile->id }}/unfollow">フォロー解除</a></p>
-        @else
-        <p class="follow-btn"><a href="/{{ $profile->id }}/follow">フォローする</a></p>
-        @endif
-
-      @endforeach
-    </section>
-</div>
-    <section class="followPost">
-      @foreach($posts as $post)
-        <img src=" {{ asset('storage/avatar/'.$post->user->images) }} " class="rounded-circle" style="object-fit: cover; width: 40px; height: 40px;">
+<section class="followPost">
+  @foreach($posts as $post)
+  <div class="aboutPost">
+    <div class="post-users">
+      @if($post->user->images == 'dawn.png')
+      <img src="{{ asset('images/icon1.png') }}" class="avatar">
+      @else
+      <img src=" {{ asset('storage/avatar/'.$post->user->images) }} " class="avatar">
+      @endif
+    </div>
+    <div class="postList-content">
+      <div class="postListdate">
+        <p>{{ $post->updated_at }}</p>
+      </div>
+      <div class="postName">
         <p>{{ $post->user->username }}</p>
+      </div>
+      <div class="postListText">
         <p>{{ $post->post }}</p>
-      @endforeach
-    </section>
+      </div>
+    </div>
+  </div>
+  @endforeach
+</section>
 
 @endsection

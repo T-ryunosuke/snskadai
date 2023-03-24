@@ -79,6 +79,7 @@ class UsersController extends Controller
     }
     //↑
 
+    //↓ユーザー検索
     public function search(Request $request){
       $search_name = $request->search;
       if(!empty($search_name)){

@@ -33,7 +33,7 @@
         <h1><a href="/top"><img src=" {{ asset('images/atlas.png') }} " alt="Atlas" class="atlas"></a></h1>
       </div>
       <div class="login-user">
-        <p>{{ Auth::user()->username }}&emsp;さん</p>
+        <p>{{ Auth::user()->username }}&nbsp;さん</p>
       </div>
       <!--アコーディオンボタン↓-->
       <div class="accordion-button">
@@ -42,9 +42,9 @@
       <!--アコーディオンボタン↑-->
       <div class="login-avatar">
         @if(Auth::user()->images == 'dawn.png')
-        <img src="{{ asset('images/icon1.png') }}" class="head-avatar">
+        <img src="{{ asset('images/icon1.png') }}" class="avatar">
         @else
-        <img src="{{ asset('storage/avatar/'.Auth::user()->images) }}" class="head-avatar">
+        <img src="{{ asset('storage/avatar/'.Auth::user()->images) }}" class="avatar">
         @endif
       </div>
     </div>
@@ -66,12 +66,16 @@
         <div>
           <p>フォロー数&emsp;&emsp;&emsp;{{ Auth::user()->following()->count() }}名</p>
         </div>
+        <div class="text-right">
           <a class="btn btn-primary btn-sm" href="/follow-list" role="button">フォローリスト</a>
+        </div>
         <div>
           <p>フォロワー数&emsp;&emsp;{{ Auth::user()->followed()->count() }}名</p>
 
         </div>
+        <div class="text-right">
           <a class="btn btn-primary btn-sm" href="/follower-list" role="button">フォロワーリスト</a>
+        </div>
       </div>
       <div class="search-button">
         <a class="btn btn-primary btn-sm" href="/search" role="button">ユーザー検索</a>

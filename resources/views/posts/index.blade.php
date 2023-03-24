@@ -1,43 +1,47 @@
 @extends('layouts.login')
 
 @section('content')
-<div class="top-page">
-@foreach ($errors->all() as $error)
+<section class="top-page">
+  @foreach ($errors->all() as $error)
   <li>{{$error}}</li>
-@endforeach
+  @endforeach
   <!-- ↓二重波括弧内に url'posts' でも変わりないのか？ -->
   <form action="/posts" method="POST">
-  @csrf
+    @csrf
     <!-- 投稿の本文 -->
-    <section class="post-text">
-        <div class="post-avatar">
+    <div class="post-form">
+      <div class="avatar">
         @if(Auth::user()->images == 'dawn.png')
-        <img src="{{ asset('images/icon1.png') }}" class="head-avatar">
+        <img src="{{ asset('images/icon1.png') }}" class="avatar">
         @else
-        <img src="{{ asset('storage/avatar/'.Auth::user()->images) }}" class="head-avatar">
+        <img src="{{ asset('storage/avatar/'.Auth::user()->images) }}" class="avatar">
         @endif
       </div>
       <input class="post-content" type="text" name="post" placeholder="投稿内容を入力してください。">
       <div class="spacer"></div>
       <!--　登録ボタン -->
       <input class="postbutton-image" type="image" src="images/post.png" class="post-image">
-    </section>
+    </div>
   </form>
-</div>
+</section>
 
 <!-- 全ての投稿リスト -->
 <div class="postList">
   @foreach ($posts as $post)
   <div class="aboutPost">
-    <div class="post-image">
+    <div class="post-users">
       @if($post->user->images == 'dawn.png')
       <img src="{{ asset('images/icon1.png') }}" class="avatar">
       @else
       <img src="{{ asset('storage/avatar/'.$post->user->images) }}" class="avatar">
       @endif
     </div>
-    <!-- 投稿者名の表示 -->
     <div class="postList-content">
+      <!-- 投稿更新日 -->
+      <div class="postListdate">
+        <p>{{ $post->updated_at }}</p>
+      </div>
+      <!-- 投稿者名の表示 -->
       <div class="postName">
         <p>{{ $post->user->username }}</p>
       </div>
@@ -47,9 +51,9 @@
       </div>
     </div>
     <div class="spacer"></div>
+    <!-- ↓投稿編集ボタンのための記述 -->
+    @if (Auth::id() == $post->user_id)
     <div class="postListImage">
-      <!-- ↓投稿編集ボタンのための記述 -->
-      @if (Auth::id() == $post->user_id)
       <div class="postListEditImage">
         <a class="js-modal-open" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="images/edit.png"></a>
       </div>
@@ -57,8 +61,8 @@
       <div class="postListDeleteImage">
         <a class="postDelete" href="/{{ $post->id }}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img src="images/trash.png"><img src="images/trash-h.png"></a>
       </div>
-      @endif
     </div>
+    @endif
   </div>
   @endforeach
 
