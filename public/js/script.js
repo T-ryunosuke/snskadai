@@ -1,4 +1,10 @@
 $(function () {
+  // ↓ヘッダーメニュー
+  $('.bi-chevron-up').click(function () {
+    $('.bi-chevron-up').toggleClass('add');
+  });
+  // ↑ヘッダーメニュー
+
   // ↓投稿編集モーダル（カリキュラムコピペ）
   $('.js-modal-open').on('click', function () {
     // モーダルの中身(class="js-modal")の表示

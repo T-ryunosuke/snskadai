@@ -95,6 +95,21 @@ class RegisterController extends Controller
     //     return view("auth.register");
     // }
 
+    /**
+    * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\User
+     */
+    protected function create(array $data)
+    {
+        return User::create([
+            'username' => $data['username'],
+            'mail' => $data['mail'],
+            'password' => bcrypt($data['password']),
+        ]);
+    }
+
     public function register(Request $request){
         if($request->isMethod('post')){
             $data = $request->input();

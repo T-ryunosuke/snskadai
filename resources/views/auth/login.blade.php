@@ -5,18 +5,19 @@
 {!! Form::open(['url' => '/login']) !!}
 
 <p>AtlasSNSへようこそ</p>
-<br><br>
-{{ Form::label('mail adress') }}
 <br>
-{{ Form::text('mail',null,['class' => 'input']) }}
-<br><br>
-{{ Form::label('password') }}
+<div class="check-form">
+  {{ Form::label('email','mail address',['class' => 'label']) }}
+  {{ Form::text('mail',null,['class' => 'input']) }}
+  <br><br>
+  {{ Form::label('pass','password',['class' => 'label']) }}
+  {{ Form::password('password',['class' => 'input']) }}
+</div>
+{{ Form::submit('LOGIN',['class' => 'button']) }}
 <br>
-{{ Form::password('password',['class' => 'input']) }}
-<br>
-{{ Form::submit('ログイン') }}
-<br><br><br>
-<p><a href="/register">新規ユーザーの方はこちら</a></p>
+<div class="link">
+  <p><a href="/register">新規ユーザーの方はこちら</a></p>
+</div>
 
 {!! Form::close() !!}
 

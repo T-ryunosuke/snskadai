@@ -59,6 +59,14 @@ ol {
     height: 2vw;
 }
 
+.bi-chevron-up {
+    transition: all 1s;
+}
+
+.bi-chevron-up.add{
+    transform: rotate(-540deg);
+}
+
 /* header */
 header {
     background: #186AC9;
