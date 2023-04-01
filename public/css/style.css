@@ -376,6 +376,9 @@ h1 .atlas {
 
 .side-menu{
     border-bottom: 1px solid #727272;
+}
+
+.side{
     padding: 4% 8% 8% 10%;
 }
 
@@ -391,20 +394,36 @@ h1 .atlas {
 }
 
 .side-menu li a{
-    color: gray;
+    color: black;
 }
 
 .side-menu li:first-child{
-    margin-bottom:10%;
-    padding:8% 0 8%;
+    padding:10% 0;
+}
+
+.side-menu li:nth-child(2){
+    padding: 10% 0;
+    border-top: 1px solid #666;
     border-bottom: 1px solid #666;
 }
 
 .side-menu li:last-child {
-    margin-top:10%;
-    padding:8% 0 2%;
-    border-top: 1px solid #666;
+    padding:10% 0;
 }
+
+/* ↓hover時 */
+.side-menu li:first-child:hover {
+    background-color:skyblue;
+}
+
+.side-menu li:nth-child(2):hover {
+    background-color:skyblue;
+}
+
+.side-menu li:last-child:hover {
+    background-color:skyblue;
+}
+/* ↑hover時 */
 
 .search-button{
     padding-top: 1rem;

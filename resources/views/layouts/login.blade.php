@@ -62,19 +62,20 @@
         </ul>
       </div>
       <div class="collapse show side-menu" id="confirm">
-        <p>{{ Auth::user()->username }}さんの</p>
-        <div>
-          <p>フォロー数&emsp;&emsp;&emsp;{{ Auth::user()->following()->count() }}名</p>
-        </div>
-        <div class="text-right">
-          <a class="btn btn-primary btn-sm" href="/follow-list" role="button">フォローリスト</a>
-        </div>
-        <div>
-          <p>フォロワー数&emsp;&emsp;{{ Auth::user()->followed()->count() }}名</p>
-
-        </div>
-        <div class="text-right">
-          <a class="btn btn-primary btn-sm" href="/follower-list" role="button">フォロワーリスト</a>
+        <div class="side">
+          <p>{{ Auth::user()->username }}さんの</p>
+          <div>
+            <p>フォロー数&emsp;&emsp;&emsp;{{ Auth::user()->following()->count() }}名</p>
+          </div>
+          <div class="text-right">
+            <a class="btn btn-primary btn-sm" href="/follow-list" role="button">フォローリスト</a>
+          </div>
+          <div>
+            <p>フォロワー数&emsp;&emsp;{{ Auth::user()->followed()->count() }}名</p>
+          </div>
+          <div class="text-right">
+            <a class="btn btn-primary btn-sm" href="/follower-list" role="button">フォロワーリスト</a>
+          </div>
         </div>
       </div>
       <div class="search-button">
