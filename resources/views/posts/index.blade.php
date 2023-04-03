@@ -77,7 +77,7 @@
         <input type ="image" name="submit" width="30" height="30" src="images/edit.png" alt=" 送信">
         {{ csrf_field() }}
       </form>
-      <a class="js-modal-close" href="">閉じる</a>
+      <a class="js-modal-close close-button" href="/top">閉じる</a>
     </div>
   </div>
   <!-- ↑モーダルの中身（カリキュラムコピペ） -->
